@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>林均燁｜行政/專案個人履歷</title>
+  <meta name="description" content="林均燁｜醫院行政/個管｜專案管理/專案助理｜AI 助理工程師（轉職）" />
+
+  <style>
+    :root{
+      /* 暖色系主題 */
+      --bg1:#fff3e8;      /* 淡杏 */
+      --bg2:#ffe7d1;      /* 淡橘 */
+      --paper:#ffffffcc;  /* 半透明白卡 */
+      --text:#1f2937;
+      --muted:#6b7280;
+      --line:rgba(31,41,55,.10);
+      --accent:#8b4513;   /* 溫暖棕（專業、穩重） */
+      --chip:#fff7ed;     /* 很淡的暖底 */
+      --shadow: 0 18px 40px rgba(31,41,55,.10);
+
+      --max:1040px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Noto Sans TC", "Segoe UI", Roboto, Arial;
+      color:var(--text);
+      line-height:1.7;
+      letter-spacing:.2px;
+
+      /* 暖色系背景（不花俏但有質感） */
+      background:
+        radial-gradient(900px 500px at 15% 5%, rgba(255,193,143,.55), transparent 60%),
+        radial-gradient(900px 500px at 90% 25%, rgba(255,221,178,.65), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+    }
+
+    a{ color:var(--accent); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    .wrap{ max-width:var(--max); margin:0 auto; padding:28px 18px 70px; }
+
+    .topbar{
+      display:flex; justify-content:space-between; align-items:center;
+      padding-bottom:14px; margin-bottom:22px;
+      gap:12px; flex-wrap:wrap;
+
+      /* 讓頂部看起來像乾淨的抬頭 */
+      border-bottom:1px solid var(--line);
+    }
+    .nav{ display:flex; gap:14px; flex-wrap:wrap; }
+    .nav a{ color:var(--muted); font-size:14px; }
+
+    .layout{ display:grid; grid-template-columns: 320px 1fr; gap:22px; }
+    @media (max-width: 860px){ .layout{ grid-template-columns:1fr; } }
+
+    .card, .section{
+      background:var(--paper);
+      backdrop-filter: blur(10px);
+      border:1px solid var(--line);
+      border-radius:16px;
+      box-shadow: var(--shadow);
+    }
+    .card{ padding:16px; }
+    .section{ padding:18px; }
+    .section + .section{ margin-top:14px; }
+
+    h1{ font-size:26px; margin:0 0 2px; letter-spacing:.6px; }
+    .role{ color:var(--muted); margin:0 0 10px; }
+
+    .accentLine{
+      height:3px; width:46px;
+      background:linear-gradient(90deg, var(--accent), rgba(139,69,19,.35));
+      border-radius:999px;
+      margin:10px 0 14px;
+    }
+
+    .kpi{ display:grid; gap:8px; margin-top:10px; }
+    .kpi div{ font-size:14px; color:var(--muted); }
+
+    .meta{ color:var(--muted); font-size:14px; }
+
+    .chip{
+      display:inline-block;
+      background:var(--chip);
+      border:1px solid var(--line);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:13px;
+      color:#374151;
+      margin:6px 6px 0 0;
+    }
+
+    .h2{
+      display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+      margin:0 0 10px;
+    }
+    h2{ margin:0; font-size:16px; letter-spacing:.5px; }
+    .hint{ color:var(--muted); font-size:13px; }
+
+    ul{ margin:0; padding-left:18px; }
+    li{ margin:6px 0; color:#1f2937; }
+
+    .item{ padding:12px 0; border-top:1px solid var(--line); }
+    .item:first-child{ border-top:0; padding-top:0; }
+    .titleRow{ display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+    .job{ font-weight:700; }
+    .company{ color:#374151; }
+    .footer{ margin-top:22px; color:var(--muted); font-size:13px; }
+
+    /* 大頭照 */
+    .avatar{
+      width:100%;
+      border-radius:14px;
+      border:1px solid var(--line);
+      margin-bottom:12px;
+      object-fit:cover;
+      background:#fff;
+    }
+
+    /* 精選卡片 */
+    .cards{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+    @media (max-width: 980px){ .cards{ grid-template-columns:1fr; } }
+    .miniCard{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:14px;
+      background:rgba(255,255,255,.65);
+    }
+    .miniTitle{
+      font-weight:800;
+      margin-bottom:8px;
+      color:var(--accent);
+      letter-spacing:.2px;
+    }
+    .miniCard ul{ margin:0; padding-left:18px; }
+    .miniCard li{ color:#374151; }
+
+    /* 證照縮圖牆（按鈕） */
+    .certGrid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    @media (max-width: 860px){ .certGrid{ grid-template-columns:1fr; } }
+
+    .certBtn{
+      width:100%;
+      text-align:left;
+      cursor:pointer;
+      font:inherit;
+      appearance:none;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:10px;
+      color:var(--text);
+      background:rgba(255,255,255,.70);
+      transition: transform .08s ease, border-color .12s ease, background .12s ease;
+    }
+    .certBtn:hover{
+      border-color: rgba(139,69,19,.35);
+      background:rgba(255,255,255,.85);
+      transform: translateY(-1px);
+    }
+
+    .certBtn img{
+      width:100%;
+      height:170px;
+      object-fit:cover;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:#fff;
+      display:block;
+    }
+    .certBtn div{
+      margin-top:8px;
+      font-size:14px;
+      color:#374151;
+    }
+    .certBtn small{
+      display:block;
+      margin-top:2px;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    /* 圖片載入失敗提示 */
+    .imgFallback{
+      display:none;
+      height:170px;
+      border-radius:12px;
+      border:1px dashed rgba(139,69,19,.35);
+      background:rgba(255,255,255,.6);
+      color:#7c5a3a;
+      font-size:13px;
+      align-items:center;
+      justify-content:center;
+      padding:10px;
+      text-align:center;
+    }
+
+    /* Modal */
+    .modal{ position:fixed; inset:0; display:none; z-index:9999; }
+    .modal.isOpen{ display:block; }
+    .modalBackdrop{ position:absolute; inset:0; background:rgba(31,41,55,.72); }
+
+    .modalPanel{
+      position:relative;
+      max-width:980px;
+      margin:6vh auto;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow: 0 22px 70px rgba(0,0,0,.40);
+      overflow:hidden;
+      width: calc(100% - 24px);
+      background:rgba(255,255,255,.95);
+    }
+    .modalTop{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 14px;
+      border-bottom:1px solid var(--line);
+    }
+    .modalTitle{ font-weight:800; color:#111827; }
+    .modalClose{
+      cursor:pointer;
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:12px;
+      padding:6px 10px;
+      font:inherit;
+    }
+    .modalImg{
+      display:block;
+      width:100%;
+      max-height:72vh;
+      object-fit:contain;
+      background:#fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="meta">林均燁的個人履歷網站（暖色系｜專業簡潔）</div>
+      <div class="nav">
+        <a href="#summary">摘要</a>
+        <a href="#featured">投遞方向</a>
+        <a href="#experience">經歷</a>
+        <a href="#skills">技能</a>
+        <a href="#certs">證照/證書</a>
+        <a href="#education">學歷</a>
+        <a href="#contact">聯絡</a>
+      </div>
+    </div>
+
+    <div class="layout">
+      <!-- 左欄 -->
+      <aside class="card">
+        <img class="avatar" src="photo.jpg" alt="林均燁 大頭照">
+
+        <h1>林均燁</h1>
+        <p class="role">醫院行政/個管｜專案管理/專案助理｜AI 助理工程師（轉職）</p>
+        <div class="accentLine"></div>
+
+        <div class="kpi">
+          <div><strong>地點：</strong><span class="meta">台北市北投區</span></div>
+          <div><strong>Email：</strong><a href="mailto:bag574ivy347@gmail.com">bag574ivy347@gmail.com</a></div>
+          <div><strong>手機：</strong><a href="tel:+886961368609">0961-368-609</a></div>
+          <div><strong>可聯絡：</strong><span class="meta">15:00–22:00（手機）</span></div>
+          <div><strong>年資：</strong><span class="meta">6～7 年</span></div>
+        </div>
+
+        <div style="margin-top:14px" class="meta"><strong>核心優勢</strong></div>
+        <div>
+          <span class="chip">文書/資料建檔</span>
+          <span class="chip">行政與接待</span>
+          <span class="chip">客訴溝通處理</span>
+          <span class="chip">進度控管概念</span>
+          <span class="chip">Office 報表能力</span>
+        </div>
+
+        <div style="margin-top:14px" class="meta"><strong>AI/數位工具（加分）</strong></div>
+        <div>
+          <span class="chip">ChatGPT</span>
+          <span class="chip">Gemini</span>
+          <span class="chip">Prompt</span>
+          <span class="chip">Python（學習中）</span>
+          <span class="chip">n8n（學習中）</span>
+        </div>
+      </aside>
+
+      <!-- 右欄 -->
+      <main>
+        <section id="summary" class="section">
+          <div class="h2">
+            <h2>摘要</h2>
+            <div class="hint">三句話快速讓人看懂你</div>
+          </div>
+          <ul>
+            <li>具 6～7 年維康醫療用品門市與醫療行政相關實務經驗，擅長民眾溝通、櫃檯接待、資料建檔與文件處理。</li>
+            <li>持有 PMA 專案助理、MOS 等證照，能以「精準、可追蹤」的方式協助任務排程與資料/報表整理。</li>
+            <li>目標職涯：醫院行政/個案管理、專案助理/專案管理，以及 AI 助理工程師（以 AI 工具/自動化提升流程效率）。</li>
+          </ul>
+        </section>
+
+        <section class="section" id="featured">
+          <div class="h2">
+            <h2>精選亮點（投遞方向）</h2>
+            <div class="hint">醫院行政 / 專案管理 / AI 助理工程師</div>
+          </div>
+
+          <div class="cards">
+            <div class="miniCard">
+              <div class="miniTitle">醫院行政 / 個案管理</div>
+              <ul>
+                <li>第一線服務：需求釐清、溝通協調、同理回應</li>
+                <li>資料建檔/維護：重視精準與一致性、降低錯誤</li>
+                <li>可快速上手流程與跨單位協作</li>
+              </ul>
+            </div>
+
+            <div class="miniCard">
+              <div class="miniTitle">專案管理 / 專案助理</div>
+              <ul>
+                <li>PMA：任務拆解、進度控管、追蹤回報概念</li>
+                <li>Office：追蹤表、會議資料、簡報整理</li>
+                <li>跨域背景：分析、整合、落地執行</li>
+              </ul>
+            </div>
+
+            <div class="miniCard">
+              <div class="miniTitle">AI 助理工程師（轉職）</div>
+              <ul>
+                <li>熟悉 ChatGPT/Gemini：把需求轉成可用 Prompt</li>
+                <li>持續學習：iPAS AI（規劃）、Python、n8n</li>
+                <li>目標：AI/自動化優化行政與專案流程</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="experience" class="section">
+          <div class="h2">
+            <h2>工作經歷</h2>
+            <div class="hint">建議後續補上量化會更強</div>
+          </div>
+
+          <div class="item">
+            <div class="titleRow">
+              <div>
+                <div class="job">門市人員</div>
+                <div class="company">維康醫療用品（美德耐股份有限公司）｜台北市北投區</div>
+              </div>
+              <div class="meta">2019/01 – 至今</div>
+            </div>
+            <ul>
+              <li>櫃檯接待與需求服務：快速釐清需求、提供產品解說與建議。</li>
+              <li>客戶資料維護：文件/資料輸入建檔、資料更新與檔案管理。</li>
+              <li>電話接聽與人員接待：資訊確認、問題回覆與流程協助。</li>
+              <li>客訴處理：同理溝通、問題釐清、提出可執行解法並追蹤回覆。</li>
+              <li>客戶情報蒐集：回收現場回饋，協助提升服務品質。</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="skills" class="section">
+          <div class="h2"><h2>技能</h2><div class="hint">偏行政/專案常用能力</div></div>
+          <ul>
+            <li><strong>Office：</strong>Word / Excel / PowerPoint（報表、排版、簡報整理）</li>
+            <li><strong>文書與行政：</strong>資料建檔、文件處理/整合、行政事務處理、檔案管理</li>
+            <li><strong>服務與溝通：</strong>門市接待、產品介紹、顧客關係、客訴案件處理</li>
+            <li><strong>AI 工具（加分）：</strong>ChatGPT / Gemini / Prompt</li>
+          </ul>
+        </section>
+
+        <section id="certs" class="section">
+          <div class="h2"><h2>證照 / 證書</h2><div class="hint">點擊縮圖可同頁放大（Esc 關閉）</div></div>
+
+          <div class="certGrid">
+            <button class="certBtn" data-full="cert-pma.jpg" data-title="PMA 專案助理">
+              <img src="cert-pma.jpg" alt="PMA 專案助理證照">
+              <div class="imgFallback">找不到圖片：cert-pma.jpg</div>
+              <div>PMA 專案助理</div>
+              <small>專案基礎｜任務與進度控管</small>
+            </button>
+
+            <button class="certBtn" data-full="cert-mos.jpg" data-title="MOS（Office 專業能力）">
+              <img src="cert-mos.jpg" alt="MOS 證照">
+              <div class="imgFallback">找不到圖片：cert-mos.jpg</div>
+              <div>MOS（Office 專業能力）</div>
+              <small>Office 專業能力證明</small>
+            </button>
+
+            <button class="certBtn" data-full="diploma-1.jpg" data-title="畢業證書（1）">
+              <img src="diploma-1.jpg" alt="畢業證書 1">
+              <div class="imgFallback">找不到圖片：diploma-1.jpg</div>
+              <div>畢業證書（1）</div>
+              <small>學歷證明</small>
+            </button>
+
+            <button class="certBtn" data-full="diploma-2.jpg" data-title="畢業證書（2）">
+              <img src="diploma-2.jpg" alt="畢業證書 2">
+              <div class="imgFallback">找不到圖片：diploma-2.jpg</div>
+              <div>畢業證書（2）</div>
+              <small>學歷證明</small>
+            </button>
+
+            <button class="certBtn" data-full="cert-webdesign.jpg" data-title="網頁設計丙級">
+              <img src="cert-webdesign.jpg" alt="網頁設計丙級">
+              <div class="imgFallback">找不到圖片：cert-webdesign.jpg</div>
+              <div>網頁設計丙級</div>
+              <small>技能證明</small>
+            </button>
+
+            <button class="certBtn" data-full="cert-software.jpg" data-title="電腦軟體應用丙級">
+              <img src="cert-software.jpg" alt="電腦軟體應用丙級">
+              <div class="imgFallback">找不到圖片：cert-software.jpg</div>
+              <div>電腦軟體應用丙級</div>
+              <small>技能證明</small>
+            </button>
+          </div>
+        </section>
+
+        <section id="education" class="section">
+          <div class="h2"><h2>學歷</h2><div class="hint">跨域背景</div></div>
+          <ul>
+            <li>私立中華科技大學｜建築系 碩士｜2019/09 – 2021/06</li>
+            <li>私立中國科技大學｜資訊管理系 學士｜2014/09 – 2017/06</li>
+          </ul>
+        </section>
+
+        <section id="contact" class="section">
+          <div class="h2"><h2>聯絡</h2><div class="hint">保持簡潔可行動</div></div>
+          <ul>
+            <li>Email：<a href="mailto:bag574ivy347@gmail.com">bag574ivy347@gmail.com</a></li>
+            <li>手機：<a href="tel:+886961368609">0961-368-609</a></li>
+            <li>可聯絡時段：15:00–22:00（手機）</li>
+            <li>地點：台北市北投區</li>
+          </ul>
+          <div class="footer">© <span id="y"></span> 林均燁</div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="imgModal" aria-hidden="true">
+    <div class="modalBackdrop" data-close="true"></div>
+
+    <div class="modalPanel" role="dialog" aria-modal="true" aria-label="圖片預覽">
+      <div class="modalTop">
+        <div class="modalTitle" id="modalTitle">圖片預覽</div>
+        <button class="modalClose" id="modalClose" aria-label="關閉">✕</button>
+      </div>
+
+      <img class="modalImg" id="modalImg" alt="放大圖片">
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // 圖片載入失敗提示
+    document.querySelectorAll(".certBtn img").forEach(img => {
+      img.addEventListener("error", () => {
+        img.style.display = "none";
+        const fb = img.parentElement.querySelector(".imgFallback");
+        if (fb) fb.style.display = "flex";
+      });
+    });
+
+    // Modal
+    const modal = document.getElementById("imgModal");
+    const modalImg = document.getElementById("modalImg");
+    const modalTitle = document.getElementById("modalTitle");
+    const closeBtn = document.getElementById("modalClose");
+
+    function openModal(src, title){
+      modal.classList.add("isOpen");
+      modal.setAttribute("aria-hidden", "false");
+      modalImg.src = src;
+      modalTitle.textContent = title || "圖片預覽";
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal(){
+      modal.classList.remove("isOpen");
+      modal.setAttribute("aria-hidden", "true");
+      modalImg.src = "";
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll(".certBtn").forEach(btn => {
+      btn.addEventListener("click", () => openModal(btn.dataset.full, btn.dataset.title));
+    });
+
+    closeBtn.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => {
+      if (e.target && e.target.dataset && e.target.dataset.close === "true") closeModal();
+    });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+  </script>
+</body>
+</html>
